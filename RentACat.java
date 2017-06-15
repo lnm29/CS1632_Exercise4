@@ -55,11 +55,13 @@ public class RentACat {
 				case 1:
 					//System Start up
 					//Listing cats for rent
+
 					System.out.println("Cats for Rent\n");
 					for (int i = 0; i < Cats.size(); i++)
 					{
 						System.out.println(Cats.get(i).toString());
 					}
+
 				break;
 			
 				case 2:
