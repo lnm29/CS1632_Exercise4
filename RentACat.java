@@ -2,13 +2,13 @@ import java.util.*;
 
 public class RentACat {
 	
-	public ArrayList<Cat> Cats = new ArrayList<Cat>();
-	public ArrayList<Customer> Customers = new ArrayList<Customer>();
+	public static ArrayList<Cat> Cats = new ArrayList<Cat>();
+	public static ArrayList<Customer> Customers = new ArrayList<Customer>();
 
 	public static void main(String [] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		boolean valid;
+		boolean valid = false;
 		int choice = 0;
 		Cat cat1 = new Cat("Cat1", 100, 0);
 		Cat cat2 = new Cat("Cat2", 300, 1);
@@ -55,7 +55,11 @@ public class RentACat {
 				case 1:
 					//System Start up
 					//Listing cats for rent
-					cats.listCat();
+					System.out.println("Cats for Rent\n");
+					for (int i = 0; i < Cats.size(); i++)
+					{
+						System.out.println(Cats.get(i).toString());
+					}
 				break;
 			
 				case 2:
@@ -77,22 +81,75 @@ public class RentACat {
 							sc.next();	
 						}
 						
-					}
+						if(custID >= Customers.size() || custID < 0){
+							System.out.println("Invalid option! Customer does not exist.");
+							valid = false;
+						}
+						
+					}while(valid == false);
 					//if the customer doesn't exist "That customer doesn't exist!"
 					//If customer does exist next prompt is
 						//"Rent which cat? > "
-						cats.rentCat();
+					valid = false;
+					int catID = 0;
+					do{
+						System.out.println("Rent which cat? > ");
+						try{
+							valid = true;
+							catID = sc.nextInt();
+						}  
+						catch (InputMismatchException ime)
+						{
+							System.out.println("Invalid option! Try again");
+							catID = 0;
+							valid = false;
+							sc.next();	
+						}
+						
+						if(catID >= Cats.size() || catID < 0){
+							System.out.println("Invalid option! Cat does not exist.");
+							valid = false;
+						}
+						
+					}while(valid == false);
+						
+					Cats.get(catID).rentCat(Customers.get(custID));
 							//if number is valid then "Catname has been renter to Customername"
 				//WHEN ONE CAT IS RENTED EXIT LOOP AND NEW PERSON CAN RENT ANY OTHER CAT
 				break;
 			
 				case 3:
 				//Return the cat
-				cats.returnCat();
+				//cats.returnCat();
 				//Prompt says "Return which cat > "
 					//if invalid say "Invalid cat ID" and reask
 				//Renter pays "CustomerName paid Price"
 				//Prompt says, "Welcome back, CAT NAME!"
+				
+					valid = false;
+					catID = 0;
+					do{
+						System.out.println("Return which cat? > ");
+						try{
+							valid = true;
+							catID = sc.nextInt();
+						}  
+						catch (InputMismatchException ime)
+						{
+							System.out.println("Invalid cat ID! Try again");
+							catID = 0;
+							valid = false;
+							sc.next();	
+						}
+						
+						if(catID >= Cats.size() || catID < 0){
+							System.out.println("Invalid option! Cat does not exist.");
+							valid = false;
+						}
+						
+					}while(valid == false);
+					
+					Cats.get(catID).returnCat();
 				break;
 			
 				case 4:
@@ -110,13 +167,14 @@ public class RentACat {
 	
 	public void listCat() {
 		System.out.println("Cats for Rent\n");
-		for (int i = 0; i < cats.length; i++)
+		for (int i = 0; i < Cats.size(); i++)
 		{
-			System.out.println("ID " + cats.getCatID + " " + cats.getCatName + ": " + cats.getCatPrice + " / day" );
+			System.out.println(Cats.get(i).toString());
 		}
 	}
-	
+	/*
 	public String rentCat() {
+		int 
 		do
 			{
 				System.out.println("Rent which cat? > ");
@@ -157,7 +215,7 @@ public class RentACat {
 		
 		return cat.toString(); //changeable
 	}
-	
+	*/
 	
 	
 	

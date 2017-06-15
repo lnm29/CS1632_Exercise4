@@ -25,14 +25,24 @@ public class Cat{
 	}
 	
 	public void returnCat(){
-		System.out.println(this.renter + " paid " + this.cost + ".");
+		if(this.renter == null){
+			System.out.println(this.name + " can not be returned because it was not rented.");
+			return;
+		}
+		System.out.println(this.renter.name + " paid " + this.cost + ".");
+		System.out.println("Welcome back, " + this.name + "!");
 		this.renter = null;
 		this.isRented = false;
 	}
 	
 	//ID 3. Mistoffelees: $500.00 / day
 	public String toString(){
-		String output = "ID " + this.ID + ". " + this.name + ": $" + this.cost + " / day";
+		String output;
+		if(this.isRented == false){
+			output = "ID " + this.ID + ". " + this.name + ": $" + this.cost + " / day";
+		}else{
+			output = "ID " + this.ID + ". " + this.name + ": RENTED";
+		}
 		return output;
 	}
 }
