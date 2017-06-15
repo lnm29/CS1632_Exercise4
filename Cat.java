@@ -14,13 +14,21 @@ public class Cat{
 		this.isRented = false;
 	}
 	
-	public void rentCat(Customer newRenter){
+	public boolean isRented(){
+		return this.isRented;
+	}
+	
+	//return false if the cat is already rented
+	//return true if the cat was successfully rented
+	public boolean rentCat(Customer newRenter){
 		if(this.isRented == true){
 			System.out.println("Sorry, " + this.name + " is not here!");
+			return false;
 		}else{
 			System.out.println(this.name + " has been rented to Customer " + newRenter.name + ".");
 			this.isRented = true;
 			this.renter = newRenter;
+			return true;
 		}
 	}
 	
@@ -37,12 +45,8 @@ public class Cat{
 	
 	//ID 3. Mistoffelees: $500.00 / day
 	public String toString(){
-		String output;
-		if(this.isRented == false){
-			output = "ID " + this.ID + ". " + this.name + ": $" + this.cost + " / day";
-		}else{
-			output = "ID " + this.ID + ". " + this.name + ": RENTED";
-		}
+		String output = "ID " + this.ID + ". " + this.name + ": $" + this.cost + " / day";
 		return output;
 	}
+	
 }

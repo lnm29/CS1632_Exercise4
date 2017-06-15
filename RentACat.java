@@ -59,7 +59,8 @@ public class RentACat {
 					System.out.println("Cats for Rent\n");
 					for (int i = 0; i < Cats.size(); i++)
 					{
-						System.out.println(Cats.get(i).toString());
+						if(Cats.get(i).isRented() == false)
+							System.out.println(Cats.get(i).toString());
 					}
 
 				break;
@@ -166,60 +167,4 @@ public class RentACat {
 		
 		
 	}
-	
-	public void listCat() {
-		System.out.println("Cats for Rent\n");
-		for (int i = 0; i < Cats.size(); i++)
-		{
-			System.out.println(Cats.get(i).toString());
-		}
-	}
-	/*
-	public String rentCat() {
-		int 
-		do
-			{
-				System.out.println("Rent which cat? > ");
-				try 
-				{
-					valid = true;
-					//choice = sc.nextInt();		//this will be the stringbuilder
-				}
-				catch (InputMismatchException ime)
-				{
-					System.out.println("Invalid option! Try again");
-					//choice = 0;					//CAT NAME NULL
-					valid = false;
-					sc.next();
-				}
-			} while (!valid);
-		
-		return catName; //changeable
-	}
-	
-	public String returnCat() {
-		do{
-			System.out.println("Return which cat? > ");
-			try 
-			{
-				valid = true;
-				//choice = sc.nextString(); //THIS WILL BE THE STRINGBUILDER 
-			}
-			catch (InputMismatchException ime)
-			{
-				System.out.println("Invalid option! Try again");
-				//choice = 0;			//CAT NAME NULL 
-				valid = false;
-				sc.next();
-			}
-				
-		} while (!valid);
-		
-		return cat.toString(); //changeable
-	}
-	*/
-	
-	
-	
-	
 }
