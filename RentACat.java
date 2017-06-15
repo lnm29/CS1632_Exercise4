@@ -42,7 +42,7 @@ public class RentACat {
 					valid = false;
 					sc.next();
 				}
-				if (choice > 4 || choice < 0)
+				if (choice > 4 || choice < 1)
 				{
 					System.out.println("Invalid option! Try again");
 					valid = false;
