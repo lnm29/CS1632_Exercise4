@@ -2,17 +2,27 @@ import java.util.*;
 
 public class RentACat {
 	
-	public ArrayList<String> Cats = new ArrayList<String>();
-	public ArrayList<String> Customers = new ArrayList<String>();
+	public ArrayList<Cat> Cats = new ArrayList<Cat>();
+	public ArrayList<Customer> Customers = new ArrayList<Customer>();
 
 	public static void main(String [] args)
 	{
 		Scanner sc = new Scanner(System.in);
 		boolean valid;
 		int choice = 0;
-		Cat cats = new Cat(3);
+		Cat cat1 = new Cat("Cat1", 100, 0);
+		Cat cat2 = new Cat("Cat2", 300, 1);
+		Cat cat3 = new Cat("Cat3", 200, 2);
+		Cats.add(cat1);
+		Cats.add(cat2);
+		Cats.add(cat3);
 		//DOUBLED WHEN TESTING
-		Customer customers = new Customer(3);
+		Customer customer1 = new Customer("Dave", 0);
+		Customer customer2 = new Customer("Sam", 1);
+		Customer customer3 = new Customer("Ashley", 2);
+		Customers.add(customer1);
+		Customers.add(customer2);
+		Customers.add(customer3);
 		//DOUBLED WHEN TESTING
 		
 		do{
@@ -54,7 +64,7 @@ public class RentACat {
 				int custID = 0;
 				
 					do {
-						System.out.println("Customer ID > "");
+						System.out.println("Customer ID > ");
 						try{
 							valid = true;
 							custID = sc.nextInt();
