@@ -55,7 +55,7 @@ public class RentACat {
 				case 1:
 					//System Start up
 					//Listing cats for rent
-					cats.listCat();
+					cats.toString();
 				break;
 			
 				case 2:
