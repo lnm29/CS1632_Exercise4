@@ -106,7 +106,7 @@ public class RentACat {
 		}
 	}
 	
-	public void rentCat() {
+	public String rentCat() {
 		do
 			{
 				System.out.println("Rent which cat? > ");
@@ -123,10 +123,11 @@ public class RentACat {
 					sc.next();
 				}
 			} while (!valid);
-			
+		
+		return catName; //changeable
 	}
 	
-	public void returnCat() {
+	public String returnCat() {
 		do{
 			System.out.println("Return which cat? > ");
 			try 
@@ -144,7 +145,7 @@ public class RentACat {
 				
 		} while (!valid);
 		
-		
+		return cat.toString(); //changeable
 	}
 	
 	
