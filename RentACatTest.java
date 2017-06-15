@@ -23,12 +23,12 @@ public class RentACatTest {
 	//Two methods for returnCat method
 	@Test
 	public void catReturned(){
-		
+		assertTrue(cat.returnCat("Sam"));
 	}
 	
 	@Test
 	public void catRented(){
-		
+		assertTrue(cat.rentCat());
 	}
 	
 	
